@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="HochwarthPremiumArticles\Core\Content\PremiumArticle\PremiumArticleDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+        <service id="HochwarthPremiumArticles\Core\Content\Product\ProductExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="HochwarthPremiumArticles\Core\Content\PremiumArticle\Aggregate\PremiumArticleCustomerGroup\PremiumArticleCustomerGroupDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+        <service id="HochwarthPremiumArticles\Core\Content\CustomerGroup\CustomerGroupExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="HochwarthPremiumArticles\Core\Content\PremiumArticle\Aggregate\PremiumArticleSalesChannel\PremiumArticleSalesChannelDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+        <service id="HochwarthPremiumArticles\Core\Content\SalesChannel\SalesChannelExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="HochwarthPremiumArticles\Storefront\Page\Checkout\Cart\Subscriber\CheckoutCartPageLoadedSubscriber">
+            <argument id="hochwarth_premium_article.repository" type="service"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="HochwarthPremiumArticles\Resources\snippet\en_GB\SnippetFile_en_GB">
+            <tag name="shopware.snippet.file" priority="100"/>
+        </service>
+        <service id="HochwarthPremiumArticles\Resources\snippet\de_DE\SnippetFile_de_DE">
+            <tag name="shopware.snippet.file" priority="100"/>
+        </service>
+
+        <service id="HochwarthPremiumArticles\Core\Checkout\PremiumArticle\Cart\PremiumArticleCartProcessor">
+            <argument id="hochwarth_premium_article.repository" type="service"/>
+            <argument id="Shopware\Core\Checkout\Cart\Price\QuantityPriceCalculator" type="service"/>
+            <argument id="service_container" type="service"/>
+            <tag name="shopware.cart.processor" priority="4500" />
+            <tag name="shopware.cart.collector" priority="4500" />
+        </service>
+    </services>
+</container>

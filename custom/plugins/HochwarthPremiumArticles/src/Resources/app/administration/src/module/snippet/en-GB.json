@@ -1,0 +1,30 @@
+{
+    "hochwarth-premiumArticles": {
+        "general": {
+            "pluginName": "Premium articles",
+            "description": "Configure your premium articles here."
+        },
+        "list": {
+            "active": "Enabled",
+            "minPrice": "Shopping cart value",
+            "product": "Premium article",
+            "automaticAdd": "Add automatically",
+            "customerGroups": "Customer groups",
+            "salesChannels": "Sales channels"
+        },
+        "detail": {
+            "active": "Enabled (Show in Storefront)",
+            "minPrice": "Shopping cart value (minimum)",
+            "product": "Premium article",
+            "automaticAdd": "Add automatically to shopping cart",
+            "customerGroups": "Assigned customer groups (leave empty to ignore)",
+            "salesChannels": "Assigned sales channels (leave empty to ignore)",
+
+            "minPricePlaceholder": "Enter a min cart value...",
+            "productPlaceholder": "Enter a product...",
+            "customerGroupsPlaceholder": "Select customer groups...",
+            "salesChannelsPlaceholder": "Select sales channels..."
+        },
+        "saveErrorText": "Error while saving your premium article"
+    }
+}

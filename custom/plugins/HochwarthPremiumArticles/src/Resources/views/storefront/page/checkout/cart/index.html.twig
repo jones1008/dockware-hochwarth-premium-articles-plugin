@@ -1,0 +1,40 @@
+{% sw_extends '@Storefront/storefront/page/checkout/cart/index.html.twig' %}
+{% set premiumArticles = page.extensions.premiumArticles.entities.elements %}
+{% block page_checkout_container %}
+    {{ parent() }}
+
+{#    only show premiumArticles if there are any#}
+    {% if premiumArticles|length > 0 %}
+        {% set config = {
+            'title': {
+                'value': "Prämie raussuchen"
+            },
+            'border': {
+                'value': false
+            },
+            'rotate': {
+                'value': false
+            },
+            'boxLayout': {
+                'value': 'standard'
+            },
+            'elMinWidth': {
+                'value': '300px'
+            },
+            'navigation': {
+                'value': true
+            },
+            'verticalAlign': {
+                'value': 'top'
+            },
+        } %}
+
+        {% sw_include "@HochwarthPremiumArticles/storefront/custom-element/cms-element-product-slider.html.twig" with {
+            sliderConfig: config,
+            element: {
+                type: 'product-slider'
+            }
+
+        } %}
+    {% endif %}
+{% endblock %}
